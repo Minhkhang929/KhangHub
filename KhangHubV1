@@ -1,0 +1,29 @@
+local p = game.Players.LocalPlayer.PlayerGui
+local g = Instance.new("ScreenGui", p)
+local f = Instance.new("Frame", g)
+local t = Instance.new("TextLabel", f)
+
+f.Size, f.Position, f.BackgroundColor3 = UDim2.new(0,200,0,160), UDim2.new(0.5,-100,0.5,-80), Color3.new(0,0,0)
+f.Active, f.Draggable = true, true
+
+t.Size, t.Text = UDim2.new(1,0,0,30), "KHANG HUB V2"
+t.BackgroundColor3, t.Font, t.TextSize = Color3.fromRGB(30,30,30), 2, 18
+
+task.spawn(function()
+    while task.wait() do
+        for i = 0, 1, 0.01 do
+            t.TextColor3 = Color3.fromHSV(i, 1, 1)
+            task.wait(0.01)
+        end
+    end
+end)
+
+local function b(y, txt, clr)
+    local btn = Instance.new("TextButton", f)
+    btn.Size, btn.Position, btn.Text = UDim2.new(1,-20,0,35), UDim2.new(0,10,0,y), txt
+    btn.BackgroundColor3, btn.Font, btn.TextSize = clr or Color3.fromRGB(100,100,100), 2, 16
+end
+
+b(40, "ESP PLAYER")
+b(80, "TP PLAYER")
+b(120, "AUTO KILL", Color3.fromRGB(150,0,0))
